@@ -1,6 +1,13 @@
 const needle = require('needle');
 
-const url = 'https://api.thecatapi.com/v1/breeds/search'; 
+// Allow the user to specify the breed name using command-line arguments.
+const args = process.argv;
+const breed = args[2];
+
+// Retrieves breed from the command line
+const url = ('https://api.thecatapi.com/v1/breeds/search?q=' + breed);
+
+
 
 needle.get(url, (error, response) => {
 
@@ -10,7 +17,5 @@ needle.get(url, (error, response) => {
   } else {
     console.log(typeof response.body);
     console.log('Body:', response.body);
-    // console.log('Status Code:', response.statusCode);
-    // console.log('Response Headers:', response.headers);
   }
 });
