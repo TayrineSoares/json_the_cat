@@ -10,6 +10,12 @@ const url = `https://api.thecatapi.com/v1/breeds/search?q=${breedName}`;
 
 needle.get(url, (error, response) => {
 
+  // makes sure a breed name is provided
+  if (!breedName) {
+    console.error('Please enter a breed name');
+    return; // The return statement ensures the script stops further execution
+  }
+
   if (error) {
     console.error('Error fetching data:', error);
     return; //The return statement ensures the script stops further execution in the event of an error.
