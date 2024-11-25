@@ -1,6 +1,5 @@
 const needle = require('needle');
 
-
 const fetchBreedDescription = function(breedName, callback) {
 
   if (!breedName) {
@@ -23,7 +22,7 @@ const fetchBreedDescription = function(breedName, callback) {
       callback(null, breed.description);
 
     } else {
-      console.log('Breed not found');
+      callback('Breed not found', null);
     }
 
   });
